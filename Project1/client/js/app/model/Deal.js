@@ -1,23 +1,24 @@
 class Deal {
   constructor(date, amount, value) {
-    this._date = date;
+    this._date = new Date(date.getTime());
     this._amount = amount;
     this._value = value;
+    Object.freeze(this);
   }
 
-  getVolume() {
+  get volume() {
     return this._amount * this._value;
   }
 
-  getDate() {
-    return this._date;
+  get date() {
+    return new Date(this._date.getTime());
   }
 
-  getAmount() {
+  get amount() {
     return this._amount;
   }
 
-  getValue() {
+  get value() {
     return this._value;
   }
 }
